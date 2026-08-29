@@ -3,27 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE GAMER'S CAFE| Luxury Gaming Experience</title>
+
+<title>THE GAMER'S CAFÉ | Luxury Gaming Experience</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
     --bg:#050509;
     --bg2:#0b0b12;
     --card:rgba(18,18,28,.72);
+
     --gold:#d7b56d;
     --gold2:#f4d895;
+
     --purple:#8b5cf6;
     --cyan:#00e5ff;
     --pink:#ff2bd6;
-    --white:#fff;
+
+    --white:#ffffff;
     --muted:#a6a6b3;
-    --border:rgba(255,255,255,.1);
+
+    --border:rgba(255,255,255,.10);
+
     --shadow:0 25px 80px rgba(0,0,0,.5);
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -37,12 +54,28 @@ html{
 
 body{
     background:
-        radial-gradient(circle at 20% 10%,rgba(139,92,246,.12),transparent 30%),
-        radial-gradient(circle at 85% 20%,rgba(0,229,255,.08),transparent 28%),
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(139,92,246,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(0,229,255,.08),
+            transparent 28%
+        ),
         var(--bg);
+
     color:var(--white);
+
     font-family:Poppins,sans-serif;
+
     overflow-x:hidden;
+}
+
+body::selection{
+    background:var(--gold);
+    color:#000;
 }
 
 a{
@@ -50,7 +83,9 @@ a{
     text-decoration:none;
 }
 
-button,input,select{
+button,
+input,
+select{
     font:inherit;
 }
 
@@ -59,106 +94,230 @@ button,input,select{
     margin:auto;
 }
 
-/* LOADER */
+
+/* =========================================================
+   LOADER
+========================================================= */
 
 .loader{
     position:fixed;
     inset:0;
+
     background:#050509;
+
     z-index:9999;
+
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:column;
+
     transition:1s;
 }
 
 .loader-logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
     font-family:Orbitron;
-    font-size:30px;
+    font-size:25px;
     font-weight:900;
+
     letter-spacing:4px;
+
     color:var(--gold2);
-    text-shadow:0 0 30px rgba(215,181,109,.6);
+
+    text-shadow:
+        0 0 20px rgba(215,181,109,.6);
+}
+
+.loader-logo img{
+    width:55px;
+    height:55px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(0 0 15px rgba(215,181,109,.5));
 }
 
 .loader-line{
     width:220px;
     height:2px;
+
     background:#222;
+
     margin-top:20px;
+
     overflow:hidden;
 }
 
 .loader-line span{
     display:block;
+
     width:0;
     height:100%;
+
     background:var(--gold);
+
     animation:loading 2s forwards;
 }
 
 @keyframes loading{
-    to{width:100%}
+    to{
+        width:100%;
+    }
 }
 
-/* NAVBAR */
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.10),
+            transparent 65%
+        );
+
+    transform:translate(-50%,-50%);
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
 
 .navbar{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
+
     z-index:1000;
+
     padding:18px 0;
+
     transition:.4s;
 }
 
 .navbar.scrolled{
     background:rgba(5,5,9,.82);
+
     backdrop-filter:blur(20px);
+
     border-bottom:1px solid var(--border);
 }
 
 .nav-inner{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
+
+/* LOGO */
+
 .logo{
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     font-family:Orbitron;
+
     font-weight:900;
+
     letter-spacing:2px;
+
+    white-space:nowrap;
 }
 
 .logo-icon{
-    width:42px;
-    height:42px;
+    width:45px;
+    height:45px;
+
     border:1px solid var(--gold);
+
     display:grid;
+
     place-items:center;
+
     border-radius:12px;
+
     color:var(--gold2);
-    box-shadow:0 0 25px rgba(215,181,109,.18);
+
+    box-shadow:
+        0 0 25px rgba(215,181,109,.18);
+
+    overflow:hidden;
+}
+
+.logo-icon img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    padding:4px;
 }
 
 .logo span{
     color:var(--gold2);
 }
 
+
+/* NAV LINKS */
+
 .nav-links{
     display:flex;
+
     gap:30px;
+
     list-style:none;
 }
 
 .nav-links a{
     color:#ccc;
+
     font-size:13px;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:1px;
+
+    background:var(--gold2);
+
     transition:.3s;
 }
 
@@ -166,165 +325,293 @@ button,input,select{
     color:var(--gold2);
 }
 
+.nav-links a:hover::after{
+    width:100%;
+}
+
+
+/* NAV BUTTON */
+
 .nav-btn{
     padding:11px 20px;
+
     border:1px solid var(--gold);
+
     border-radius:30px;
+
     color:var(--gold2);
+
     font-size:13px;
+
     transition:.3s;
 }
 
 .nav-btn:hover{
     background:var(--gold);
+
     color:#080808;
+
+    box-shadow:
+        0 0 30px rgba(215,181,109,.25);
 }
+
+
+/* MOBILE BUTTON */
 
 .menu{
     display:none;
-    font-size:26px;
+
+    font-size:27px;
+
     cursor:pointer;
+
+    color:var(--gold2);
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
     min-height:100vh;
+
     position:relative;
+
     display:flex;
+
     align-items:center;
+
     overflow:hidden;
 }
 
 .hero-bg{
     position:absolute;
+
     inset:0;
+
     background:
-        linear-gradient(90deg,rgba(5,5,9,.98),rgba(5,5,9,.65),rgba(5,5,9,.2)),
-        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85")
+        linear-gradient(
+            90deg,
+            rgba(5,5,9,.98),
+            rgba(5,5,9,.65),
+            rgba(5,5,9,.18)
+        ),
+        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=90")
         center/cover;
+
     z-index:-2;
+
+    transform:translateY(0);
+
+    transition:.1s linear;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
+
     inset:0;
+
     background:
-        linear-gradient(to bottom,transparent 70%,var(--bg)),
-        radial-gradient(circle at 80% 50%,rgba(139,92,246,.18),transparent 35%);
+        linear-gradient(
+            to bottom,
+            transparent 65%,
+            var(--bg)
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(139,92,246,.18),
+            transparent 35%
+        );
+
     z-index:-1;
 }
 
 .hero-content{
     max-width:720px;
+
     padding-top:70px;
 }
 
+
+/* BADGE */
+
 .badge{
     display:inline-flex;
+
     align-items:center;
+
     gap:9px;
+
     padding:8px 14px;
+
     border:1px solid rgba(215,181,109,.35);
+
     background:rgba(215,181,109,.06);
+
     border-radius:30px;
+
     color:var(--gold2);
+
     font-size:11px;
+
     letter-spacing:2px;
+
     text-transform:uppercase;
 }
 
 .status-dot{
     width:7px;
     height:7px;
+
     background:#54ff7c;
+
     border-radius:50%;
+
     box-shadow:0 0 12px #54ff7c;
 }
 
+
+/* HERO TITLE */
+
 .hero h1{
     font-family:Orbitron;
+
     font-size:clamp(48px,7vw,92px);
+
     line-height:.95;
+
     margin:25px 0;
+
     letter-spacing:-4px;
 }
 
 .hero h1 .gold{
     color:var(--gold2);
+
+    text-shadow:
+        0 0 30px rgba(215,181,109,.18);
 }
 
 .hero h1 .outline{
     color:transparent;
-    -webkit-text-stroke:1px rgba(255,255,255,.55);
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.55);
 }
+
+
+/* HERO TEXT */
 
 .hero p{
     color:#c0c0ca;
+
     max-width:580px;
+
     line-height:1.8;
+
     font-size:15px;
 }
 
+
+/* HERO BUTTONS */
+
 .hero-buttons{
     display:flex;
+
     gap:15px;
+
     margin-top:35px;
 }
 
 .btn{
     border:none;
+
     cursor:pointer;
+
     padding:14px 24px;
+
     border-radius:5px;
+
     font-size:13px;
+
     font-weight:600;
+
     transition:.3s;
 }
 
 .btn-gold{
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold2),
+            var(--gold)
+        );
+
     color:#111;
-    box-shadow:0 10px 35px rgba(215,181,109,.2);
+
+    box-shadow:
+        0 10px 35px rgba(215,181,109,.2);
 }
 
 .btn-gold:hover{
     transform:translateY(-3px);
-    box-shadow:0 15px 45px rgba(215,181,109,.35);
+
+    box-shadow:
+        0 15px 45px rgba(215,181,109,.35);
 }
 
 .btn-outline{
     border:1px solid rgba(255,255,255,.2);
+
     background:rgba(255,255,255,.04);
+
     color:white;
 }
 
 .btn-outline:hover{
     border-color:var(--gold);
+
+    color:var(--gold2);
 }
+
+
+/* HERO STATS */
 
 .hero-stats{
     display:flex;
+
     gap:45px;
+
     margin-top:60px;
 }
 
 .stat strong{
     display:block;
+
     font-family:Orbitron;
+
     font-size:25px;
+
     color:var(--gold2);
 }
 
 .stat span{
     color:#858591;
+
     font-size:11px;
+
     text-transform:uppercase;
+
     letter-spacing:1px;
 }
 
-/* SECTIONS */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 section{
     padding:110px 0;
@@ -332,43 +619,70 @@ section{
 
 .section-head{
     text-align:center;
+
     margin-bottom:55px;
 }
 
 .eyebrow{
     color:var(--gold2);
+
     text-transform:uppercase;
+
     font-size:11px;
+
     letter-spacing:4px;
 }
 
 .section-head h2{
     font-family:Orbitron;
+
     font-size:clamp(30px,5vw,52px);
+
     margin:12px 0;
 }
 
 .section-head p{
     color:var(--muted);
+
     max-width:600px;
+
     margin:auto;
+
     font-size:14px;
 }
 
-/* EXPERIENCE */
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
 .experience-grid{
     display:grid;
+
     grid-template-columns:1.3fr .7fr;
+
+    gap:20px;
+}
+
+.exp-side{
+    display:grid;
+
+    grid-template-rows:1fr 1fr;
+
     gap:20px;
 }
 
 .exp-card{
     position:relative;
+
     min-height:400px;
+
     border:1px solid var(--border);
+
     overflow:hidden;
+
     border-radius:16px;
+
     background:#111;
 }
 
@@ -378,210 +692,415 @@ section{
 
 .exp-image{
     position:absolute;
+
     inset:0;
+
     background-size:cover;
+
     background-position:center;
-    transition:.6s;
+
+    transition:.7s ease;
 }
 
 .exp-card:hover .exp-image{
-    transform:scale(1.06);
+    transform:scale(1.08);
 }
 
-.exp-card:nth-child(1) .exp-image{
+
+/* EXPERIENCE IMAGE 1 */
+
+.exp-main .exp-image{
     background-image:
-    linear-gradient(0deg,rgba(0,0,0,.85),transparent),
-    url("https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1000&q=80");
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.94),
+            rgba(0,0,0,.20),
+            transparent
+        ),
+        url("https://cdn.phototourl.com/free/2026-08-29-b0cbeb35-2d7e-4c89-99e2-d13dfa8c2f7c.jpg");
 }
 
-.exp-card:nth-child(2) .exp-image{
+
+/* EXPERIENCE IMAGE 2 */
+
+.exp-console .exp-image{
     background-image:
-    linear-gradient(0deg,rgba(0,0,0,.9),transparent),
-    url("https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80");
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.94),
+            rgba(0,0,0,.15),
+            transparent
+        ),
+        url("https://cdn.phototourl.com/member/2026-08-29-e508f240-8522-4339-80af-6b0f862c66b0.jpg");
 }
 
-.exp-card:nth-child(3) .exp-image{
+
+/* EXPERIENCE IMAGE 3 */
+
+.exp-vip .exp-image{
     background-image:
-    linear-gradient(0deg,rgba(0,0,0,.9),transparent),
-    url("https://images.unsplash.com/photo-1578926288207-a90a5366759d?auto=format&fit=crop&w=900&q=80");
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.94),
+            rgba(0,0,0,.15),
+            transparent
+        ),
+        url("https://cdn.phototourl.com/member/2026-08-29-3100bedf-679f-40f8-b1d1-a7a1be0be5b3.jpg");
 }
+
+
+/* EXPERIENCE CONTENT */
 
 .exp-content{
     position:absolute;
+
     bottom:0;
+
+    left:0;
+    right:0;
+
     padding:30px;
+
+    z-index:2;
 }
 
 .exp-content h3{
     font-family:Orbitron;
+
     font-size:23px;
+
+    letter-spacing:1px;
 }
 
 .exp-content p{
     color:#aaa;
+
     font-size:12px;
+
     margin-top:6px;
+
+    line-height:1.6;
 }
 
-/* SPECS */
+.exp-card.small .exp-content{
+    padding:24px;
+}
+
+.exp-card.small .exp-content h3{
+    font-size:17px;
+}
+
+
+/* SHINE EFFECT */
+
+.exp-card::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255,255,255,.09) 50%,
+            transparent 70%
+        );
+
+    transform:translateX(-100%);
+
+    transition:.8s;
+
+    z-index:3;
+
+    pointer-events:none;
+}
+
+.exp-card:hover::before{
+    transform:translateX(100%);
+}
+
+
+/* =========================================================
+   SYSTEMS
+========================================================= */
 
 .specs{
-    background:linear-gradient(180deg,transparent,rgba(139,92,246,.04),transparent);
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(139,92,246,.04),
+            transparent
+        );
 }
 
 .spec-grid{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:15px;
 }
 
 .spec-card{
     padding:28px 20px;
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:12px;
+
     text-align:center;
+
     transition:.4s;
 }
 
 .spec-card:hover{
     transform:translateY(-8px);
-    border-color:rgba(215,181,109,.45);
+
+    border-color:
+        rgba(215,181,109,.45);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
 }
 
 .spec-icon{
     font-size:28px;
+
     margin-bottom:15px;
 }
 
 .spec-card h3{
     font-family:Orbitron;
+
     font-size:15px;
 }
 
 .spec-card p{
     color:#858591;
+
     font-size:11px;
+
     margin-top:8px;
 }
 
-/* PRICING */
+
+/* =========================================================
+   MEMBERSHIPS
+========================================================= */
 
 .pricing-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
 }
 
 .price-card{
     position:relative;
-    background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.02)
+        );
+
     border:1px solid var(--border);
+
     padding:35px;
+
     border-radius:15px;
+
     transition:.4s;
+}
+
+.price-card:hover{
+    transform:translateY(-8px);
 }
 
 .price-card.featured{
     border-color:var(--gold);
-    box-shadow:0 20px 60px rgba(215,181,109,.1);
+
+    box-shadow:
+        0 20px 60px rgba(215,181,109,.1);
+
     transform:scale(1.03);
+}
+
+.price-card.featured:hover{
+    transform:scale(1.03) translateY(-7px);
 }
 
 .popular{
     position:absolute;
+
     top:15px;
+
     right:15px;
+
     font-size:9px;
+
     padding:6px 10px;
+
     background:var(--gold);
+
     color:#111;
+
     border-radius:20px;
+
     font-weight:bold;
 }
 
 .price-card h3{
     font-family:Orbitron;
+
     font-size:19px;
 }
 
 .price{
     font-family:Orbitron;
+
     font-size:38px;
+
     margin:20px 0;
+
     color:var(--gold2);
 }
 
 .price span{
     font-size:11px;
+
     color:#888;
 }
 
 .features{
     list-style:none;
+
     border-top:1px solid var(--border);
+
     padding-top:20px;
 }
 
 .features li{
     font-size:12px;
+
     color:#bbb;
+
     padding:8px 0;
 }
 
 .features li::before{
     content:"✓";
+
     color:var(--gold2);
+
     margin-right:10px;
 }
 
 .full-btn{
     width:100%;
+
     margin-top:25px;
 }
 
-/* MENU */
+
+/* =========================================================
+   MENU
+========================================================= */
 
 .menu-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:16px;
 }
 
 .menu-item{
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:12px;
+
     overflow:hidden;
+
     transition:.3s;
 }
 
 .menu-item:hover{
-    transform:translateY(-5px);
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(215,181,109,.35);
 }
 
 .menu-img{
     height:180px;
+
     background-size:cover;
+
     background-position:center;
+
+    transition:.5s;
 }
+
+.menu-item:hover .menu-img{
+    transform:scale(1.03);
+}
+
+
+/* MENU IMAGE 1 */
 
 .menu-item:nth-child(1) .menu-img{
-    background-image:url("https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80");
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.3),
+            transparent
+        ),
+        url("https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=90");
 }
+
+
+/* MENU IMAGE 2 */
 
 .menu-item:nth-child(2) .menu-img{
-    background-image:url("https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80");
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.3),
+            transparent
+        ),
+        url("https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=90");
 }
 
+
+/* MENU IMAGE 3 */
+
 .menu-item:nth-child(3) .menu-img{
-    background-image:url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80");
+    background-image:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.3),
+            transparent
+        ),
+        url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=90");
 }
 
 .menu-info{
     padding:20px;
+
     display:flex;
+
     justify-content:space-between;
+
     gap:10px;
 }
 
@@ -591,101 +1110,94 @@ section{
 
 .menu-info p{
     color:#888;
+
     font-size:10px;
+
     margin-top:5px;
 }
 
 .menu-price{
     color:var(--gold2);
+
     font-family:Orbitron;
+
     font-size:13px;
+
+    white-space:nowrap;
 }
 
-/* TOURNAMENT */
 
-.tournament{
-    position:relative;
-    border:1px solid rgba(139,92,246,.25);
-    border-radius:20px;
-    overflow:hidden;
-    padding:70px;
-    background:
-        linear-gradient(90deg,rgba(5,5,9,.95),rgba(5,5,9,.55)),
-        url("https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=1600&q=85")
-        center/cover;
-}
-
-.tournament h2{
-    font-family:Orbitron;
-    font-size:42px;
-    max-width:600px;
-}
-
-.tournament p{
-    color:#bbb;
-    max-width:550px;
-    margin:15px 0 25px;
-    font-size:14px;
-}
-
-.prize{
-    display:inline-block;
-    color:var(--gold2);
-    font-family:Orbitron;
-    font-size:25px;
-    margin-bottom:20px;
-}
-
-/* BOOKING */
+/* =========================================================
+   BOOKING
+========================================================= */
 
 .booking-wrapper{
     display:grid;
+
     grid-template-columns:.8fr 1.2fr;
+
     gap:20px;
 }
 
 .booking-info{
     padding:40px;
+
     border:1px solid var(--border);
+
     background:var(--card);
+
     border-radius:15px;
 }
 
 .booking-info h3{
     font-family:Orbitron;
+
     font-size:24px;
 }
 
 .booking-info p{
     color:#999;
+
     font-size:13px;
+
     line-height:1.8;
+
     margin:15px 0;
 }
 
 .contact-item{
     padding:15px 0;
+
     border-top:1px solid var(--border);
+
     font-size:12px;
+
     color:#bbb;
 }
 
 .booking-form{
     padding:40px;
+
     background:rgba(255,255,255,.035);
+
     border:1px solid var(--border);
+
     border-radius:15px;
 }
 
 .form-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:15px;
 }
 
 .field{
     display:flex;
+
     flex-direction:column;
+
     gap:7px;
 }
 
@@ -695,91 +1207,143 @@ section{
 
 .field label{
     color:#888;
+
     font-size:10px;
+
     text-transform:uppercase;
+
     letter-spacing:1px;
 }
 
 .field input,
 .field select{
     background:#0b0b11;
+
     border:1px solid #252530;
+
     padding:13px;
+
     border-radius:7px;
+
     color:white;
+
     outline:none;
+
+    transition:.3s;
+}
+
+.field input::placeholder{
+    color:#555;
 }
 
 .field input:focus,
 .field select:focus{
     border-color:var(--gold);
+
+    box-shadow:
+        0 0 15px rgba(215,181,109,.08);
 }
 
 .booking-form .btn{
     margin-top:20px;
 }
 
-/* TESTIMONIAL */
+
+/* =========================================================
+   REVIEWS
+========================================================= */
 
 .testimonial-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:18px;
 }
 
 .review{
     background:var(--card);
+
     border:1px solid var(--border);
+
     padding:28px;
+
     border-radius:13px;
+
+    transition:.3s;
+}
+
+.review:hover{
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(215,181,109,.3);
 }
 
 .stars{
     color:var(--gold2);
+
     letter-spacing:3px;
 }
 
 .review p{
     color:#aaa;
+
     font-size:13px;
+
     line-height:1.8;
+
     margin:15px 0;
 }
 
 .reviewer{
     font-size:12px;
+
     font-weight:bold;
 }
 
 .reviewer span{
     color:#777;
+
     font-weight:normal;
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
     border-top:1px solid var(--border);
+
     padding:50px 0 25px;
 }
 
 .footer-grid{
     display:grid;
+
     grid-template-columns:1.4fr 1fr 1fr 1fr;
+
     gap:40px;
 }
 
 .footer-brand p{
     color:#777;
+
     font-size:12px;
+
     line-height:1.8;
+
     max-width:280px;
+
     margin-top:15px;
 }
 
 footer h4{
     font-family:Orbitron;
+
     font-size:12px;
+
     margin-bottom:18px;
 }
 
@@ -789,65 +1353,193 @@ footer ul{
 
 footer li{
     color:#777;
+
     font-size:11px;
+
     padding:6px 0;
+
+    transition:.3s;
 }
 
 footer li:hover{
     color:var(--gold2);
+
+    cursor:pointer;
 }
 
 .copyright{
     border-top:1px solid var(--border);
+
     margin-top:40px;
+
     padding-top:20px;
+
     display:flex;
+
     justify-content:space-between;
+
     color:#555;
+
     font-size:10px;
 }
 
-/* FLOATING */
 
-.cursor-glow{
-    position:fixed;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    pointer-events:none;
-    background:radial-gradient(circle,rgba(139,92,246,.08),transparent 65%);
-    transform:translate(-50%,-50%);
-    z-index:-1;
-}
-
-/* REVEAL */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 .reveal{
     opacity:0;
+
     transform:translateY(35px);
-    transition:1s;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 .reveal.active{
     opacity:1;
+
     transform:translateY(0);
 }
 
-/* RESPONSIVE */
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:min(360px,calc(100% - 40px));
+
+    padding:18px 20px;
+
+    background:
+        rgba(12,12,20,.95);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid var(--gold);
+
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.5);
+
+    transform:translateY(130px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+
+    z-index:9998;
+}
+
+.toast.active{
+    transform:translateY(0);
+
+    opacity:1;
+}
+
+.toast-title{
+    font-family:Orbitron;
+
+    color:var(--gold2);
+
+    font-size:13px;
+
+    margin-bottom:5px;
+}
+
+.toast-text{
+    color:#aaa;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-top{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid var(--gold);
+
+    background:rgba(5,5,9,.85);
+
+    color:var(--gold2);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.back-top.show{
+    opacity:1;
+
+    visibility:visible;
+}
+
+.back-top:hover{
+    background:var(--gold);
+
+    color:#111;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
 
     .nav-links{
         position:absolute;
+
         top:75px;
+
         left:4%;
         right:4%;
+
         display:none;
+
         flex-direction:column;
+
         background:#0b0b11;
+
         padding:25px;
+
         border:1px solid var(--border);
+
         border-radius:12px;
+
+        box-shadow:
+            0 20px 60px rgba(0,0,0,.5);
     }
 
     .nav-links.active{
@@ -880,6 +1572,10 @@ footer li:hover{
         transform:none;
     }
 
+    .price-card.featured:hover{
+        transform:translateY(-7px);
+    }
+
     .menu-grid{
         grid-template-columns:1fr 1fr;
     }
@@ -887,7 +1583,14 @@ footer li:hover{
     .footer-grid{
         grid-template-columns:1fr 1fr;
     }
+
+    .exp-side{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:auto;
+    }
 }
+
 
 @media(max-width:600px){
 
@@ -895,18 +1598,47 @@ footer li:hover{
         padding:80px 0;
     }
 
+    .logo{
+        font-size:11px;
+
+        gap:7px;
+    }
+
+    .logo-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .hero{
+        min-height:100svh;
+    }
+
     .hero h1{
         font-size:45px;
+
         letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:13px;
     }
 
     .hero-buttons{
         flex-direction:column;
     }
 
+    .hero-buttons .btn{
+        width:100%;
+
+        text-align:center;
+    }
+
     .hero-stats{
         gap:20px;
+
         flex-wrap:wrap;
+
+        margin-top:45px;
     }
 
     .stat strong{
@@ -924,193 +1656,491 @@ footer li:hover{
         grid-column:auto;
     }
 
-    .tournament{
-        padding:40px 25px;
+    .exp-side{
+        grid-template-columns:1fr;
     }
 
-    .tournament h2{
-        font-size:30px;
+    .exp-card{
+        min-height:320px;
+    }
+
+    .exp-card.small{
+        min-height:230px;
+    }
+
+    .booking-info,
+    .booking-form{
+        padding:25px;
     }
 
     .copyright{
         flex-direction:column;
+
         gap:10px;
+
+        line-height:1.6;
+    }
+
+    .back-top{
+        right:18px;
+        bottom:18px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- LOADER -->
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
 <div class="loader" id="loader">
-    <div class="loader-logo">THE GAMER'S CAFÉ</div>
-    <div class="loader-line"><span></span></div>
+
+    <div class="loader-logo">
+
+        <img
+            src="https://cdn.phototourl.com/free/2026-08-29-97027b6c-ceb2-4900-8a78-0085c5e6023e.png"
+            alt="Gamer's Café Logo"
+        >
+
+        <span>GAMER'S CAFÉ</span>
+
+    </div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
 </div>
 
-<!-- CURSOR GLOW -->
+
+<!-- CURSOR -->
+
 <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- NAVBAR -->
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
 <header class="navbar" id="navbar">
+
     <div class="container nav-inner">
 
+
+        <!-- LOGO -->
+
         <a href="#" class="logo">
-            <div class="logo-icon">GC</div>
-            <div>GAMER'S <span>CAFE</span></div>
+
+            <div class="logo-icon">
+
+                <img
+                    src="https://cdn.phototourl.com/free/2026-08-29-97027b6c-ceb2-4900-8a78-0085c5e6023e.png"
+                    alt="GC Logo"
+                >
+
+            </div>
+
+            <div>
+                GAMER'S <span>CAFÉ</span>
+            </div>
+
         </a>
 
+
+        <!-- NAVIGATION -->
+
         <nav>
+
             <ul class="nav-links" id="navLinks">
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#systems">Systems</a></li>
-                <li><a href="#memberships">Membership</a></li>
-                <li><a href="#menu">Café</a></li>
+
+                <li>
+                    <a href="#experience">
+                        Experience
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#systems">
+                        Systems
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#memberships">
+                        Membership
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#menu">
+                        Café
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#booking">
+                        Booking
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
 
-        <a href="#booking" class="nav-btn">BOOK A SESSION</a>
 
-        <div class="menu" id="menuBtn">☰</div>
+        <a
+            href="#booking"
+            class="nav-btn"
+        >
+            BOOK A SESSION
+        </a>
+
+
+        <div
+            class="menu"
+            id="menuBtn"
+        >
+            ☰
+        </div>
+
     </div>
+
 </header>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
 
     <div class="hero-bg"></div>
 
+
     <div class="container">
+
         <div class="hero-content reveal">
 
+
             <div class="badge">
+
                 <span class="status-dot"></span>
+
                 Now Open • Salem
+
             </div>
+
 
             <h1>
+
                 PLAY<br>
-                <span class="gold">BEYOND</span><br>
-                <span class="outline">LIMITS.</span>
+
+                <span class="gold">
+                    BEYOND
+                </span><br>
+
+                <span class="outline">
+                    LIMITS.
+                </span>
+
             </h1>
 
+
             <p>
-                A next-generation luxury gaming café designed for competitive
-                gamers, casual players, creators and esports communities.
-                Premium hardware. Private rooms. Exceptional coffee.
+
+                A next-generation luxury gaming café designed
+                for competitive gamers, casual players,
+                creators and esports communities.
+
+                Premium hardware. Private rooms.
+                Exceptional coffee.
+
             </p>
+
 
             <div class="hero-buttons">
-                <a href="#booking" class="btn btn-gold">RESERVE YOUR SETUP →</a>
-                <a href="#experience" class="btn btn-outline">EXPLORE EXPERIENCE</a>
+
+                <a
+                    href="#booking"
+                    class="btn btn-gold"
+                >
+                    RESERVE YOUR SETUP →
+                </a>
+
+                <a
+                    href="#experience"
+                    class="btn btn-outline"
+                >
+                    EXPLORE EXPERIENCE
+                </a>
+
             </div>
+
 
             <div class="hero-stats">
-                <div class="stat">
-                    <strong>LUXURY</strong>
-                    <span>Gaming Stations</span>
-                </div>
+
 
                 <div class="stat">
-                    <strong>4K</strong>
-                    <span>Ultra HD</span>
+
+                    <strong>
+                        40+
+                    </strong>
+
+                    <span>
+                        Gaming Stations
+                    </span>
+
                 </div>
 
+
                 <div class="stat">
-                    <strong>240Hz</strong>
-                    <span>Competitive Play</span>
+
+                    <strong>
+                        4K
+                    </strong>
+
+                    <span>
+                        Ultra HD
+                    </span>
+
                 </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        240Hz
+                    </strong>
+
+                    <span>
+                        Competitive Play
+                    </span>
+
+                </div>
+
+
             </div>
 
         </div>
+
     </div>
+
 </section>
 
-<!-- EXPERIENCE -->
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
 <section id="experience">
+
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">The Experience</div>
-            <h2>BUILT FOR GAMERS.</h2>
+
+            <div class="eyebrow">
+                The Experience
+            </div>
+
+            <h2>
+                BUILT FOR GAMERS.
+            </h2>
+
             <p>
-                Every detail is engineered to make your gaming session
-                faster, smoother and more immersive.
+                Every detail is engineered to make your
+                gaming session faster, smoother and more immersive.
             </p>
+
         </div>
+
 
         <div class="experience-grid reveal">
 
-            <div class="exp-card">
+
+            <!-- MAIN EXPERIENCE -->
+
+            <div class="exp-card exp-main">
+
                 <div class="exp-image"></div>
+
                 <div class="exp-content">
-                    <h3>ELITE PC ARENA</h3>
-                    <p>RTX-powered gaming rigs • 240Hz displays • Mechanical keyboards</p>
-                </div>
-            </div>
 
-            <div style="display:grid;gap:20px;">
+                    <h3>
+                        ELITE GAMING ARENA
+                    </h3>
 
-                <div class="exp-card small">
-                    <div class="exp-image"></div>
-                    <div class="exp-content">
-                        <h3>CONSOLE LOUNGE</h3>
-                        <p>Next-gen consoles • 4K displays • Premium controllers</p>
-                    </div>
-                </div>
+                    <p>
+                        RTX-powered gaming rigs • 240Hz displays •
+                        Mechanical keyboards
+                    </p>
 
-                <div class="exp-card small">
-                    <div class="exp-image"></div>
-                    <div class="exp-content">
-                        <h3>PRIVATE ROOMS</h3>
-                        <p>Squad gaming • Streaming • Events</p>
-                    </div>
                 </div>
 
             </div>
+
+
+            <!-- SIDE -->
+
+            <div class="exp-side">
+
+
+                <!-- CONSOLE -->
+
+                <div class="exp-card small exp-console">
+
+                    <div class="exp-image"></div>
+
+                    <div class="exp-content">
+
+                        <h3>
+                            CAFE
+                        </h3>
+
+                        <p>
+                          FUEL FOR YOUR ENERGY
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- VIP -->
+
+                <div class="exp-card small exp-vip">
+
+                    <div class="exp-image"></div>
+
+                    <div class="exp-content">
+
+                        <h3>
+                            CAFE FOR GAMERS
+                        </h3>
+
+                        <p>
+                            Private gaming • 4K screens •
+                            Immersive lighting . Best Food
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
-<!-- SYSTEMS -->
-<section class="specs" id="systems">
+
+<!-- =====================================================
+     SYSTEMS
+===================================================== -->
+
+<section
+    class="specs"
+    id="systems"
+>
 
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">Hardware</div>
-            <h2>NO COMPROMISE.</h2>
+
+            <div class="eyebrow">
+                Hardware
+            </div>
+
+            <h2>
+                NO COMPROMISE.
+            </h2>
+
             <p>
-                Competitive-grade hardware built for serious performance.
+                Competitive-grade hardware built
+                for serious performance.
             </p>
+
         </div>
+
 
         <div class="spec-grid reveal">
 
-            <div class="spec-card">
-                <div class="spec-icon">⚡</div>
-                <h3>RTX GPU</h3>
-                <p>High-end ray tracing graphics</p>
-            </div>
 
             <div class="spec-card">
-                <div class="spec-icon">🖥</div>
-                <h3>240HZ</h3>
-                <p>Ultra-fast competitive displays</p>
+
+                <div class="spec-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    RTX GPU
+                </h3>
+
+                <p>
+                    High-end ray tracing graphics
+                </p>
+
             </div>
 
-            <div class="spec-card">
-                <div class="spec-icon">🎧</div>
-                <h3>7.1 AUDIO</h3>
-                <p>Immersive spatial sound</p>
-            </div>
 
             <div class="spec-card">
-                <div class="spec-icon">⌨</div>
-                <h3>PRO GEAR</h3>
-                <p>Mechanical keyboards & precision mice</p>
+
+                <div class="spec-icon">
+                    🖥
+                </div>
+
+                <h3>
+                    240HZ
+                </h3>
+
+                <p>
+                    Ultra-fast competitive displays
+                </p>
+
             </div>
+
+
+            <div class="spec-card">
+
+                <div class="spec-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    7.1 AUDIO
+                </h3>
+
+                <p>
+                    Immersive spatial sound
+                </p>
+
+            </div>
+
+
+            <div class="spec-card">
+
+                <div class="spec-icon">
+                    ⌨
+                </div>
+
+                <h3>
+                    PRO GEAR
+                </h3>
+
+                <p>
+                    Mechanical keyboards & precision mice
+                </p>
+
+            </div>
+
 
         </div>
 
@@ -1118,176 +2148,357 @@ footer li:hover{
 
 </section>
 
-<!-- MEMBERSHIPS -->
+
+<!-- =====================================================
+     MEMBERSHIPS
+===================================================== -->
+
 <section id="memberships">
 
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">Memberships</div>
-            <h2>CHOOSE YOUR LEVEL.</h2>
+
+            <div class="eyebrow">
+                Memberships
+            </div>
+
+            <h2>
+                CHOOSE YOUR LEVEL.
+            </h2>
+
             <p>
                 More play. More perks. More reasons to stay.
             </p>
+
         </div>
+
 
         <div class="pricing-grid reveal">
 
+
+            <!-- CASUAL -->
+
             <div class="price-card">
-                <h3>CASUAL</h3>
+
+                <h3>
+                    CASUAL
+                </h3>
 
                 <div class="price">
-                    ₹99 <span>/ hour</span>
+                    ₹99
+                    <span>
+                        / hour
+                    </span>
                 </div>
 
                 <ul class="features">
-                    <li>Standard Gaming PC</li>
-                    <li>144Hz Monitor</li>
-                    <li>Gaming Headset</li>
-                    <li>Café Wi-Fi</li>
+
+                    <li>
+                        Standard Gaming PC
+                    </li>
+
+                    <li>
+                        144Hz Monitor
+                    </li>
+
+                    <li>
+                        Gaming Headset
+                    </li>
+
+                    <li>
+                        Café Wi-Fi
+                    </li>
+
                 </ul>
 
-                <button class="btn btn-outline full-btn"
-                    onclick="selectPlan('Casual')">
+                <button
+                    class="btn btn-outline full-btn"
+                    onclick="selectPlan('Casual')"
+                >
                     SELECT PLAN
                 </button>
+
             </div>
+
+
+            <!-- ELITE -->
 
             <div class="price-card featured">
 
-                <div class="popular">MOST POPULAR</div>
+                <div class="popular">
+                    MOST POPULAR
+                </div>
 
-                <h3>ELITE</h3>
+                <h3>
+                    ELITE
+                </h3>
 
                 <div class="price">
-                    ₹179 <span>/ hour</span>
+                    ₹179
+                    <span>
+                        / hour
+                    </span>
                 </div>
 
                 <ul class="features">
-                    <li>RTX Gaming PC</li>
-                    <li>240Hz Monitor</li>
-                    <li>Premium Peripherals</li>
-                    <li>Priority Booking</li>
-                    <li>Free Welcome Drink</li>
+
+                    <li>
+                        RTX Gaming PC
+                    </li>
+
+                    <li>
+                        240Hz Monitor
+                    </li>
+
+                    <li>
+                        Premium Peripherals
+                    </li>
+
+                    <li>
+                        Priority Booking
+                    </li>
+
+                    <li>
+                        Free Welcome Drink
+                    </li>
+
                 </ul>
 
-                <button class="btn btn-gold full-btn"
-                    onclick="selectPlan('Elite')">
+                <button
+                    class="btn btn-gold full-btn"
+                    onclick="selectPlan('Elite')"
+                >
                     SELECT PLAN
                 </button>
 
             </div>
+
+
+            <!-- VIP -->
 
             <div class="price-card">
 
-                <h3>VIP</h3>
+                <h3>
+                    VIP
+                </h3>
 
                 <div class="price">
-                    ₹299 <span>/ hour</span>
+                    ₹299
+                    <span>
+                        / hour
+                    </span>
                 </div>
 
                 <ul class="features">
-                    <li>Private Gaming Room</li>
-                    <li>4K 240Hz Display</li>
-                    <li>Premium Audio</li>
-                    <li>Unlimited Wi-Fi</li>
-                    <li>VIP Café Service</li>
+
+                    <li>
+                        Private Gaming Room
+                    </li>
+
+                    <li>
+                        4K 240Hz Display
+                    </li>
+
+                    <li>
+                        Premium Audio
+                    </li>
+
+                    <li>
+                        Unlimited Wi-Fi
+                    </li>
+
+                    <li>
+                        VIP Café Service
+                    </li>
+
                 </ul>
 
-                <button class="btn btn-outline full-btn"
-                    onclick="selectPlan('VIP')">
+                <button
+                    class="btn btn-outline full-btn"
+                    onclick="selectPlan('VIP')"
+                >
                     SELECT PLAN
                 </button>
 
             </div>
 
+
         </div>
+
     </div>
 
 </section>
 
-<!-- MENU -->
+
+<!-- =====================================================
+     CAFE MENU
+===================================================== -->
+
 <section id="menu">
 
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">Fuel Your Game</div>
-            <h2>CAFÉ MENU.</h2>
+
+            <div class="eyebrow">
+                Fuel Your Game
+            </div>
+
+            <h2>
+                CAFÉ MENU.
+            </h2>
+
             <p>
-                Premium drinks and gaming fuel served throughout your session.
+                Premium drinks and gaming fuel
+                served throughout your session.
             </p>
+
         </div>
+
 
         <div class="menu-grid reveal">
 
+
+            <!-- ENERGY -->
+
             <div class="menu-item">
+
                 <div class="menu-img"></div>
 
                 <div class="menu-info">
+
                     <div>
-                        <h3>ENERGY FUEL</h3>
-                        <p>Cold energy drink • citrus • mint</p>
+
+                        <h3>
+                            ENERGY FUEL
+                        </h3>
+
+                        <p>
+                            Cold energy drink • citrus • mint
+                        </p>
+
                     </div>
-                    <div class="menu-price">₹149</div>
+
+                    <div class="menu-price">
+                        ₹149
+                    </div>
+
                 </div>
+
             </div>
 
+
+            <!-- SHAKE -->
+
             <div class="menu-item">
+
                 <div class="menu-img"></div>
 
                 <div class="menu-info">
+
                     <div>
-                        <h3>GAMER SHAKE</h3>
-                        <p>Chocolate • milk • premium cocoa</p>
+
+                        <h3>
+                            GAMER SHAKE
+                        </h3>
+
+                        <p>
+                            Chocolate • milk • premium cocoa
+                        </p>
+
                     </div>
-                    <div class="menu-price">₹179</div>
+
+                    <div class="menu-price">
+                        ₹179
+                    </div>
+
                 </div>
+
             </div>
 
+
+            <!-- PIZZA -->
+
             <div class="menu-item">
+
                 <div class="menu-img"></div>
 
                 <div class="menu-info">
+
                     <div>
-                        <h3>LOADED PIZZA</h3>
-                        <p>Cheese • vegetables • spicy sauce</p>
+
+                        <h3>
+                            LOADED PIZZA
+                        </h3>
+
+                        <p>
+                            Cheese • vegetables • spicy sauce
+                        </p>
+
                     </div>
-                    <div class="menu-price">₹249</div>
+
+                    <div class="menu-price">
+                        ₹249
+                    </div>
+
                 </div>
+
             </div>
+
 
         </div>
 
     </div>
+
 </section>
 
-    </div>
-</section>
 
-<!-- BOOKING -->
+<!-- =====================================================
+     BOOKING
+===================================================== -->
+
 <section id="booking">
 
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">Reservations</div>
-            <h2>BOOK YOUR SESSION.</h2>
+
+            <div class="eyebrow">
+                Reservations
+            </div>
+
+            <h2>
+                BOOK YOUR SESSION.
+            </h2>
+
             <p>
                 Choose your preferred setup and gaming time.
             </p>
+
         </div>
+
 
         <div class="booking-wrapper reveal">
 
+
+            <!-- INFO -->
+
             <div class="booking-info">
 
-                <h3>READY PLAYER ONE?</h3>
+                <h3>
+                    READY PLAYER ONE?
+                </h3>
 
                 <p>
                     Reserve your station before you arrive.
-                    Walk-ins are welcome, but reservations receive priority.
+                    Walk-ins are welcome, but reservations
+                    receive priority.
                 </p>
+
 
                 <div class="contact-item">
                     📍 Salem, Tamil Nadu
@@ -1307,193 +2518,433 @@ footer li:hover{
 
             </div>
 
-            <form class="booking-form" id="bookingForm">
+
+            <!-- FORM -->
+
+            <form
+                class="booking-form"
+                id="bookingForm"
+            >
 
                 <div class="form-grid">
 
-                    <div class="field">
-                        <label>Your Name</label>
-                        <input type="text" id="name" placeholder="Enter your name" required>
-                    </div>
 
                     <div class="field">
-                        <label>Phone Number</label>
-                        <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
+
+                        <label>
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
                     </div>
 
-                    <div class="field">
-                        <label>Date</label>
-                        <input type="date" id="date" required>
-                    </div>
 
                     <div class="field">
-                        <label>Time</label>
-                        <input type="time" id="time" required>
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+91 XXXXX XXXXX"
+                            required
+                        >
+
                     </div>
 
+
                     <div class="field">
-                        <label>Gaming Setup</label>
+
+                        <label>
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="time"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Gaming Setup
+                        </label>
 
                         <select id="setup">
-                            <option>Elite PC</option>
-                            <option>Casual PC</option>
-                            <option>VIP Private Room</option>
-                            <option>Console Lounge</option>
+
+                            <option>
+                                Elite PC
+                            </option>
+
+                            <option>
+                                Casual PC
+                            </option>
+
+                            <option>
+                                VIP Private Room
+                            </option>
+
+                            <option>
+                                Console Lounge
+                            </option>
+
                         </select>
 
                     </div>
+
 
                     <div class="field">
-                        <label>Players</label>
+
+                        <label>
+                            Players
+                        </label>
 
                         <select id="players">
-                            <option>1 Player</option>
-                            <option>2 Players</option>
-                            <option>3 Players</option>
-                            <option>4 Players</option>
-                            <option>5+ Players</option>
+
+                            <option>
+                                1 Player
+                            </option>
+
+                            <option>
+                                2 Players
+                            </option>
+
+                            <option>
+                                3 Players
+                            </option>
+
+                            <option>
+                                4 Players
+                            </option>
+
+                            <option>
+                                5+ Players
+                            </option>
+
                         </select>
 
                     </div>
 
+
                     <div class="field full">
-                        <label>Special Request</label>
-                        <input type="text" id="request" placeholder="Tournament, birthday, squad gaming...">
+
+                        <label>
+                            Special Request
+                        </label>
+
+                        <input
+                            type="text"
+                            id="request"
+                            placeholder="Tournament, birthday, squad gaming..."
+                        >
+
                     </div>
+
 
                 </div>
 
-                <button class="btn btn-gold" type="submit">
+
+                <button
+                    class="btn btn-gold"
+                    type="submit"
+                >
                     CONFIRM RESERVATION →
                 </button>
 
             </form>
 
+
         </div>
 
     </div>
+
 </section>
 
-<!-- REVIEWS -->
+
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
 <section>
 
     <div class="container">
 
+
         <div class="section-head reveal">
-            <div class="eyebrow">Community</div>
-            <h2>PLAYER REVIEWS.</h2>
+
+            <div class="eyebrow">
+                Community
+            </div>
+
+            <h2>
+                PLAYER REVIEWS.
+            </h2>
+
         </div>
+
 
         <div class="testimonial-grid reveal">
 
+
             <div class="review">
-                <div class="stars">★★★★★</div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p>
-                    "The setup is insane. The 240Hz screens make competitive
-                    gaming feel completely different."
+                    "The setup is insane. The 240Hz screens
+                    make competitive gaming feel completely different."
                 </p>
 
                 <div class="reviewer">
-                    ARJUN <span>• Competitive Player</span>
+                    ARJUN
+                    <span>
+                        • Competitive Player
+                    </span>
                 </div>
+
             </div>
 
+
             <div class="review">
-                <div class="stars">★★★★★</div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p>
-                    "Best gaming café I've visited. The private rooms,
-                    lighting and sound system are next level."
+                    "Best gaming café I've visited.
+                    The private rooms, lighting and sound system
+                    are next level."
                 </p>
 
                 <div class="reviewer">
-                    RAHUL <span>• Creator</span>
+                    RAHUL
+                    <span>
+                        • Creator
+                    </span>
                 </div>
+
             </div>
 
+
             <div class="review">
-                <div class="stars">★★★★★</div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
 
                 <p>
-                    "Perfect place for our squad. Great PCs, great food
-                    and an amazing atmosphere."
+                    "Perfect place for our squad.
+                    Great PCs, great food and an amazing atmosphere."
                 </p>
 
                 <div class="reviewer">
-                    VISHAL <span>• Gamer</span>
+                    VISHAL
+                    <span>
+                        • Gamer
+                    </span>
                 </div>
+
             </div>
+
 
         </div>
 
     </div>
+
 </section>
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
     <div class="container">
 
+
         <div class="footer-grid">
+
+
+            <!-- BRAND -->
 
             <div class="footer-brand">
 
-                <a href="#" class="logo">
-                    <div class="logo-icon">GC</div>
-                    <div>GAMER'S <span>CAFÉ</span></div>
+                <a
+                    href="#"
+                    class="logo"
+                >
+
+                    <div class="logo-icon">
+
+                        <img
+                            src="https://cdn.phototourl.com/free/2026-08-29-97027b6c-ceb2-4900-8a78-0085c5e6023e.png"
+                            alt="Gamer's Café"
+                        >
+
+                    </div>
+
+                    <div>
+                        GAMER'S
+                        <span>CAFÉ</span>
+                    </div>
+
                 </a>
 
+
                 <p>
-                    Where gaming meets luxury. A premium gaming destination
-                    for players, creators and esports communities.
+                    Where gaming meets luxury.
+                    A premium gaming destination for players,
+                    creators and esports communities.
                 </p>
 
             </div>
 
+
+            <!-- EXPLORE -->
+
             <div>
-                <h4>EXPLORE</h4>
+
+                <h4>
+                    EXPLORE
+                </h4>
 
                 <ul>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#systems">Gaming Systems</a></li>
-                    <li><a href="#menu">Café Menu</a></li>
-                    <li><a href="#tournament">Tournaments</a></li>
+
+                    <li>
+                        <a href="#experience">
+                            Experience
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#systems">
+                            Gaming Systems
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#menu">
+                            Café Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#memberships">
+                            Membership
+                        </a>
+                    </li>
+
                 </ul>
 
             </div>
 
+
+            <!-- COMMUNITY -->
+
             <div>
-                <h4>COMMUNITY</h4>
+
+                <h4>
+                    COMMUNITY
+                </h4>
 
                 <ul>
-                    <li>Discord</li>
-                    <li>Instagram</li>
-                    <li>YouTube</li>
-                    <li>Esports</li>
+
+                    <li>
+                        Discord
+                    </li>
+
+                    <li>
+                        Instagram
+                    </li>
+
+                    <li>
+                        YouTube
+                    </li>
+
+                    <li>
+                        Esports
+                    </li>
+
                 </ul>
 
             </div>
 
+
+            <!-- SUPPORT -->
+
             <div>
-                <h4>SUPPORT</h4>
+
+                <h4>
+                    SUPPORT
+                </h4>
 
                 <ul>
-                    <li>Contact</li>
-                    <li>Membership</li>
-                    <li>Terms</li>
-                    <li>Privacy</li>
+
+                    <li>
+                        Contact
+                    </li>
+
+                    <li>
+                        Membership
+                    </li>
+
+                    <li>
+                        Terms
+                    </li>
+
+                    <li>
+                        Privacy
+                    </li>
+
                 </ul>
 
             </div>
+
 
         </div>
 
+
         <div class="copyright">
 
-            <span>© 2026 THE GAMER'S CAFÉ. ALL RIGHTS RESERVED.</span>
+            <span>
+                © 2026 THE GAMER'S CAFÉ.
+                ALL RIGHTS RESERVED.
+            </span>
 
-            <span>DESIGNED FOR THE NEXT LEVEL.</span>
+            <span>
+                DESIGNED FOR THE NEXT LEVEL.
+            </span>
 
         </div>
 
@@ -1501,18 +2952,64 @@ footer li:hover{
 
 </footer>
 
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <div class="toast-title">
+        🎮 RESERVATION RECEIVED
+    </div>
+
+    <div
+        class="toast-text"
+        id="toastText"
+    >
+        Our team will contact you shortly.
+    </div>
+
+</div>
+
+
+<!-- BACK TO TOP -->
+
+<button
+    class="back-top"
+    id="backTop"
+>
+    ↑
+</button>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* LOADER */
+
+/* =====================================================
+   LOADER
+===================================================== */
 
 window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-        document.getElementById("loader").style.opacity = "0";
+        const loader =
+            document.getElementById("loader");
+
+        loader.style.opacity = "0";
 
         setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
+
+            loader.style.display = "none";
+
         },700);
 
     },1800);
@@ -1520,25 +3017,38 @@ window.addEventListener("load", () => {
 });
 
 
-/* NAVBAR */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 window.addEventListener("scroll", () => {
 
-    const navbar = document.getElementById("navbar");
+    const navbar =
+        document.getElementById("navbar");
 
     if(window.scrollY > 50){
+
         navbar.classList.add("scrolled");
+
     }else{
+
         navbar.classList.remove("scrolled");
+
     }
 
 });
 
 
-/* MOBILE MENU */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
 
 menuBtn.addEventListener("click", () => {
 
@@ -1547,121 +3057,274 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
 
     link.addEventListener("click", () => {
+
         navLinks.classList.remove("active");
+
     });
 
 });
 
 
-/* CURSOR */
+/* =====================================================
+   CURSOR GLOW
+===================================================== */
 
-const cursorGlow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", e => {
-
-    cursorGlow.style.left = e.clientX + "px";
-    cursorGlow.style.top = e.clientY + "px";
-
-});
+const cursorGlow =
+    document.getElementById("cursorGlow");
 
 
-/* SCROLL REVEAL */
+document.addEventListener(
+    "mousemove",
+    (e) => {
 
-const observer = new IntersectionObserver(entries => {
+        cursorGlow.style.left =
+            e.clientX + "px";
 
-    entries.forEach(entry => {
+        cursorGlow.style.top =
+            e.clientY + "px";
 
-        if(entry.isIntersecting){
+    }
+);
 
-            entry.target.classList.add("active");
 
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList
+                        .add("active");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
         }
-
-    });
-
-},{
-    threshold:.12
-});
+    );
 
 
-document.querySelectorAll(".reveal").forEach(el => {
+document
+.querySelectorAll(".reveal")
+.forEach(el => {
 
     observer.observe(el);
 
 });
 
 
-/* PLAN SELECT */
+/* =====================================================
+   PLAN SELECT
+===================================================== */
 
 function selectPlan(plan){
 
-    const setup = document.getElementById("setup");
+    const setup =
+        document.getElementById("setup");
+
 
     if(plan === "VIP"){
-        setup.value = "VIP Private Room";
+
+        setup.value =
+            "VIP Private Room";
+
     }
+
 
     if(plan === "Elite"){
-        setup.value = "Elite PC";
+
+        setup.value =
+            "Elite PC";
+
     }
+
 
     if(plan === "Casual"){
-        setup.value = "Casual PC";
+
+        setup.value =
+            "Casual PC";
+
     }
 
-    document.getElementById("booking").scrollIntoView({
-        behavior:"smooth"
-    });
+
+    document
+        .getElementById("booking")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
 
-/* BOOKING */
+/* =====================================================
+   BOOKING
+===================================================== */
 
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
-    const setup = document.getElementById("setup").value;
-
-    alert(
-        "🎮 RESERVATION RECEIVED!\n\n" +
-        "Player: " + name + "\n" +
-        "Date: " + date + "\n" +
-        "Time: " + time + "\n" +
-        "Setup: " + setup +
-        "\n\nOur team will contact you shortly."
-    );
-
-    this.reset();
-
-});
-
-/* SET MIN DATE */
-
-const today = new Date().toISOString().split("T")[0];
-
-document.getElementById("date").setAttribute("min",today);
+const bookingForm =
+    document.getElementById("bookingForm");
 
 
-/* PARALLAX HERO */
+bookingForm.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value;
+
+        const date =
+            document.getElementById("date").value;
+
+        const time =
+            document.getElementById("time").value;
+
+        const setup =
+            document.getElementById("setup").value;
+
+        const players =
+            document.getElementById("players").value;
+
+
+        const toast =
+            document.getElementById("toast");
+
+        const toastText =
+            document.getElementById("toastText");
+
+
+        toastText.innerHTML =
+            "Player: <b>" + name + "</b><br>" +
+            "Date: <b>" + date + "</b><br>" +
+            "Time: <b>" + time + "</b><br>" +
+            "Setup: <b>" + setup + "</b><br>" +
+            "Players: <b>" + players + "</b>";
+
+
+        toast.classList.add("active");
+
+
+        setTimeout(() => {
+
+            toast.classList.remove("active");
+
+        },6000);
+
+
+        bookingForm.reset();
+
+    }
+);
+
+
+/* =====================================================
+   SET MINIMUM DATE
+===================================================== */
+
+const today =
+    new Date()
+    .toISOString()
+    .split("T")[0];
+
+
+document
+    .getElementById("date")
+    .setAttribute("min",today);
+
+
+/* =====================================================
+   HERO PARALLAX
+===================================================== */
 
 window.addEventListener("scroll", () => {
 
-    const heroBg = document.querySelector(".hero-bg");
+    const heroBg =
+        document.querySelector(".hero-bg");
+
 
     if(heroBg){
+
+        const movement =
+            window.scrollY * .18;
+
+
         heroBg.style.transform =
-            "translateY(" + window.scrollY * .18 + "px)";
+            "translateY(" +
+            movement +
+            "px)";
+
     }
 
 });
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+    document.getElementById("backTop");
+
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 600){
+
+        backTop.classList.add("show");
+
+    }else{
+
+        backTop.classList.remove("show");
+
+    }
+
+});
+
+
+backTop.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* =====================================================
+   PREVENT IMAGE DRAG
+===================================================== */
+
+document
+.querySelectorAll("img")
+.forEach(img => {
+
+    img.addEventListener(
+        "dragstart",
+        e => e.preventDefault()
+    );
+
+});
+
 
 </script>
 
