@@ -1703,7 +1703,7 @@ footer li:hover{
     <div class="loader-logo">
 
         <img
-            src="https://cdn.phototourl.com/free/2026-08-29-97027b6c-ceb2-4900-8a78-0085c5e6023e.png"
+            src="https://cdn.phototourl.com/member/2026-08-30-4e47a877-9857-4c99-9a54-9e62df152def.png"
             alt="Gamer's Café Logo"
         >
 
@@ -1739,7 +1739,7 @@ footer li:hover{
             <div class="logo-icon">
 
                 <img
-                    src="https://cdn.phototourl.com/free/2026-08-29-97027b6c-ceb2-4900-8a78-0085c5e6023e.png"
+                    src="https://cdn.phototourl.com/member/2026-08-30-4e47a877-9857-4c99-9a54-9e62df152def.png"
                     alt="GC Logo"
                 >
 
@@ -1761,12 +1761,6 @@ footer li:hover{
                 <li>
                     <a href="#experience">
                         Experience
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#systems">
-                        Systems
                     </a>
                 </li>
 
@@ -1888,7 +1882,7 @@ footer li:hover{
                 <div class="stat">
 
                     <strong>
-                        40+
+                        5+
                     </strong>
 
                     <span>
@@ -2039,115 +2033,6 @@ footer li:hover{
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     SYSTEMS
-===================================================== -->
-
-<section
-    class="specs"
-    id="systems"
->
-
-    <div class="container">
-
-
-        <div class="section-head reveal">
-
-            <div class="eyebrow">
-                Hardware
-            </div>
-
-            <h2>
-                NO COMPROMISE.
-            </h2>
-
-            <p>
-                Competitive-grade hardware built
-                for serious performance.
-            </p>
-
-        </div>
-
-
-        <div class="spec-grid reveal">
-
-
-            <div class="spec-card">
-
-                <div class="spec-icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    RTX GPU
-                </h3>
-
-                <p>
-                    High-end ray tracing graphics
-                </p>
-
-            </div>
-
-
-            <div class="spec-card">
-
-                <div class="spec-icon">
-                    🖥
-                </div>
-
-                <h3>
-                    240HZ
-                </h3>
-
-                <p>
-                    Ultra-fast competitive displays
-                </p>
-
-            </div>
-
-
-            <div class="spec-card">
-
-                <div class="spec-icon">
-                    🎧
-                </div>
-
-                <h3>
-                    7.1 AUDIO
-                </h3>
-
-                <p>
-                    Immersive spatial sound
-                </p>
-
-            </div>
-
-
-            <div class="spec-card">
-
-                <div class="spec-icon">
-                    ⌨
-                </div>
-
-                <h3>
-                    PRO GEAR
-                </h3>
-
-                <p>
-                    Mechanical keyboards & precision mice
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
 
 <!-- =====================================================
      MEMBERSHIPS
